@@ -18,7 +18,7 @@ Include the plugin's JavaScript file in your HTML after including Leaflet:
 ```html
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="path/to/leaflet.draweditshape.js"></script>
+<script src="path/to/leaflet.a7.drawshape.js"></script>
 ```
 
 ## Usage
@@ -33,7 +33,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-const drawControl = L.drawEditShape(map, {
+const drawControl = L.a7DrawShape(map, {
     nodeRadius: 8,             // Radius of the node markers (pixels)
     nodeColor: '#007bff',      // Color of the node markers
     nodeFillOpacity: 0.8,      // Fill opacity of the node markers
