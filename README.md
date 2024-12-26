@@ -1,4 +1,5 @@
-# A7 Leaflet Draw Shape Plugin
+```markdown
+# Leaflet Draw and Edit Shape Plugin
 
 A Leaflet plugin for drawing and editing various shapes on a map.
 
@@ -17,7 +18,7 @@ Include the plugin's JavaScript file in your HTML after including Leaflet:
 ```html
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="path/to/leaflet.a7.drawshape.js"></script>
+<script src="path/to/leaflet.draweditshape.js"></script>
 ```
 
 ## Usage
@@ -32,8 +33,36 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-const drawControl = L.a7DrawShape(map);
+const drawControl = L.drawEditShape(map, {
+    nodeRadius: 8,             // Radius of the node markers (pixels)
+    nodeColor: '#007bff',      // Color of the node markers
+    nodeFillOpacity: 0.8,      // Fill opacity of the node markers
+    nodeStrokeWidth: 3,        // Stroke width of the node markers
+    nodeBorderColor: '#ffffff', // Border color of the node markers
+    nodeBorderWidth: 2,        // Border width of the node markers
+    pathColor: '#28a745',      // Color of the drawn path (lines and polygon borders)
+    pathWidth: 3,              // Width of the drawn path
+    fillColor: '#28a745',      // Fill color of polygons, rectangles, and circles
+    fillOpacity: 0.3,          // Fill opacity of polygons, rectangles, and circles
+    autoPanSpeed: 15,           // Speed of auto-panning when drawing near the edge of the map
+    autoPanPadding: [60, 60]    // Padding around the edge of the map for auto-panning
+});
 ```
+
+### Options Description
+
+-   **`nodeRadius`**: `Number` (default: `6`) - Radius of the node markers in pixels.
+-   **`nodeColor`**: `String` (default: `'#ff0000'`) - Color of the node markers. Can be any valid CSS color value.
+-   **`nodeFillOpacity`**: `Number` (default: `0.5`) - Fill opacity of the node markers. Value between 0 and 1.
+-   **`nodeStrokeWidth`**: `Number` (default: `2`) - Stroke width of the node markers in pixels.
+-   **`nodeBorderColor`**: `String` (default: `'#ffffff'`) - Border color of the node markers. Can be any valid CSS color value.
+-   **`nodeBorderWidth`**: `Number` (default: `2`) - Border width of the node markers in pixels.
+-   **`pathColor`**: `String` (default: `'#ff0000'`) - Color of the drawn path (lines and polygon borders). Can be any valid CSS color value.
+-   **`pathWidth`**: `Number` (default: `2`) - Width of the drawn path in pixels.
+-   **`fillColor`**: `String` (default: `'#ff0000'`) - Fill color of polygons, rectangles, and circles. Can be any valid CSS color value.
+-   **`fillOpacity`**: `Number` (default: `0.2`) - Fill opacity of polygons, rectangles, and circles. Value between 0 and 1.
+-   **`autoPanSpeed`**: `Number` (default: `10`) - Speed of auto-panning when drawing near the edge of the map.
+-   **`autoPanPadding`**: `Array<Number>` (default: `[50, 50]`) - Padding around the edge of the map in pixels for auto-panning. An array of two numbers `[horizontal, vertical]`.
 
 ### Starting Drawing
 
@@ -94,19 +123,19 @@ The plugin emits several events that you can listen to:
             console.log('Node removed:', e.node);
         });
         ```
--   **`nodedragstart`:** Triggered when dragging of a node starts.
+-   **`nodragstart`:** Triggered when dragging of a node starts.
     -   `data`: `{ node: L.CircleMarker }`
     -   Example:
         ```javascript
-        drawControl.on('nodedragstart', function(e) {
+        drawControl.on('nodragstart', function(e) {
             console.log('Node drag start:', e.node);
         });
         ```
--   **`nodedragend`:** Triggered when dragging of a node ends.
+-   **`nodragend`:** Triggered when dragging of a node ends.
     -   `data`: `{ node: L.CircleMarker }`
     -   Example:
         ```javascript
-        drawControl.on('nodedragend', function(e) {
+        drawControl.on('nodragend', function(e) {
             console.log('Node drag end:', e.node);
         });
         ```
