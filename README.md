@@ -45,7 +45,9 @@ const drawControl = L.drawEditShape(map, {
     fillColor: '#28a745',      // Fill color of polygons, rectangles, and circles
     fillOpacity: 0.3,          // Fill opacity of polygons, rectangles, and circles
     autoPanSpeed: 15,           // Speed of auto-panning when drawing near the edge of the map
-    autoPanPadding: [60, 60]    // Padding around the edge of the map for auto-panning
+    autoPanPadding: [60, 60],   // Padding around the edge of the map for auto-panning
+    longPressDelete: true,     // Enable long-press delete
+    longPressTime: 1000        // Time in milliseconds for long press (default: 1000)
 });
 ```
 
@@ -63,6 +65,9 @@ const drawControl = L.drawEditShape(map, {
 -   **`fillOpacity`**: `Number` (default: `0.2`) - Fill opacity of polygons, rectangles, and circles. Value between 0 and 1.
 -   **`autoPanSpeed`**: `Number` (default: `10`) - Speed of auto-panning when drawing near the edge of the map.
 -   **`autoPanPadding`**: `Array<Number>` (default: `[50, 50]`) - Padding around the edge of the map in pixels for auto-panning. An array of two numbers `[horizontal, vertical]`.
+- **`longPressDelete`**: `Boolean` (default: `false`) - Enables or disables deleting the entire shape on long press of a node.
+- **`longPressTime`**: `Number` (default: `1000`) - Duration of the long press in milliseconds.
+```markdown
 
 ### Starting Drawing
 
@@ -94,6 +99,14 @@ drawControl.clear();
 -   **`drawFromGeoJSON(geojson, options)`:** Draws a shape on the map from a GeoJSON object.
     -   `geojson`: The GeoJSON object.
     -   `options`: Optional options for drawing the shape.
+
+### Deleting a Shape with Long Press
+
+1. **Enable `longPressDelete`:** Set the `longPressDelete` option to `true` during plugin initialization.
+2. **Long Press:** Press and hold the left mouse button on any node of the shape for the specified `longPressTime`.
+3. **Release:** The entire shape will be deleted when you release the mouse button (provided you haven't moved the mouse, initiating a drag).
+
+**Note:** Long press delete will *not* trigger if you are dragging a node.
 
 ### Events
 
