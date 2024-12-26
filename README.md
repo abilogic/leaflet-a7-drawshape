@@ -64,9 +64,8 @@ const drawControl = L.a7DrawShape(map, {
 -   **`fillOpacity`**: `Number` (default: `0.2`) - Fill opacity of polygons, rectangles, and circles. Value between 0 and 1.
 -   **`autoPanSpeed`**: `Number` (default: `10`) - Speed of auto-panning when drawing near the edge of the map.
 -   **`autoPanPadding`**: `Array<Number>` (default: `[50, 50]`) - Padding around the edge of the map in pixels for auto-panning. An array of two numbers `[horizontal, vertical]`.
-- **`longPressDelete`**: `Boolean` (default: `false`) - Enables or disables deleting the entire shape on long press of a node.
-- **`longPressTime`**: `Number` (default: `1000`) - Duration of the long press in milliseconds.
-```markdown
+-   **`longPressDelete`**: `Boolean` (default: `false`) - Enables or disables deleting the entire shape on long press of a node.
+-   **`longPressTime`**: `Number` (default: `1000`) - Duration of the long press in milliseconds.
 
 ### Starting Drawing
 
