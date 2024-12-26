@@ -1,4 +1,3 @@
-```markdown
 # Leaflet Draw and Edit Shape Plugin
 
 A Leaflet plugin for drawing and editing various shapes on a map.
