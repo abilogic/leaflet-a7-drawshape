@@ -265,7 +265,7 @@
 
 			if (!this.isDrawing) return;
 
-			if (this.shapeType === 'point' && !this.shape) {
+			if (this.shapeType === 'point' && !this.shape && this.nodes.length === 0) {
 				const node = this._createNode(e.latlng);
 				this.nodes.push(node);
 				this.shape = node;
