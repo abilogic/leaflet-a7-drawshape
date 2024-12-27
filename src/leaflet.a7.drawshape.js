@@ -32,7 +32,7 @@
 	 */
 	L.A7DrawShape = L.Class.extend({
 		options: {
-			nodeRadius: 6,
+			nodeRadius: 8,
 			nodeColor: '#ff0000',
 			nodeFillOpacity: 0.5,
 			nodeStrokeWidth: 2,
@@ -201,7 +201,15 @@
 				L.DomEvent.stopPropagation(e);
 				L.DomEvent.preventDefault(e);
 
-				const minNodes = this.shapeType === 'polygon' ? 3 : (this.shapeType === 'rectangle' || this.shapeType === 'circle' ? 2 : 2);
+				const minNodesData = {
+					'polygon': 3,
+					'rectangle': 2,
+					'circle': 2,
+					'line': 2,
+					'point': 1
+				}
+
+				const minNodes = (minNodesData[this.shapeType] || 1);
 
 				if (this.nodes.length === minNodes) {
 					this.clear();
