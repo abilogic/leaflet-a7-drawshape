@@ -162,7 +162,7 @@
 					this.map.on('mousemove', onMouseMove);
 					this.map.on('mouseup', onMouseUp);
 					isDragging = true; // Set dragging flag immediately
-					this.fire('nodragstart', { node: node });
+					this.fire('nodedragstart', { node: node });
 				}
 			};
 
@@ -186,7 +186,7 @@
 					this.map.off('mousemove', onMouseMove);
 					this.map.off('mouseup', onMouseUp);
 					isDragging = false;
-					this.fire('nodragend', { node: node });
+					this.fire('nodedragend', { node: node });
 				}
 			};
 

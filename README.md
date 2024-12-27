@@ -134,19 +134,19 @@ The plugin emits several events that you can listen to:
             console.log('Node removed:', e.node);
         });
         ```
--   **`nodragstart`:** Triggered when dragging of a node starts.
+-   **`nodedragstart`:** Triggered when dragging of a node starts.
     -   `data`: `{ node: L.CircleMarker }`
     -   Example:
         ```javascript
-        drawControl.on('nodragstart', function(e) {
+        drawControl.on('nodedragstart', function(e) {
             console.log('Node drag start:', e.node);
         });
         ```
--   **`nodragend`:** Triggered when dragging of a node ends.
+-   **`nodedragend`:** Triggered when dragging of a node ends.
     -   `data`: `{ node: L.CircleMarker }`
     -   Example:
         ```javascript
-        drawControl.on('nodragend', function(e) {
+        drawControl.on('nodedragend', function(e) {
             console.log('Node drag end:', e.node);
         });
         ```
